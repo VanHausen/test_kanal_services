@@ -1,0 +1,19 @@
+{% extends 'base/base.html' %}
+{% load static %}
+
+{% block title %} Добавить {% endblock %}
+
+{% block content %}
+
+<form class="p-10" method="post">
+    <div class="mb-3 p-5 form">
+        {% csrf_token %}
+        {{ form }}
+        <br>
+        <button type="submit" class="btn btn-primary btn-lg mt-5">Добавить</button>
+    </div>
+</form>
+<h3>Курс НБ РФ =  <span id="rate"> {{ rate }} </span></h3>
+
+{% endblock %}
+

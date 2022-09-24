@@ -1,0 +1,17 @@
+{% extends 'base/base.html' %}
+{% load static %}
+
+{% block title %} Удалить  {% endblock %}
+
+{% block content %}
+
+<form action="{% url 'delete' data.id %}" method="post">
+    {% csrf_token %}
+    <h4>Вы уверены что хотите удалить заказ № {{ data.order_num }}</h4>
+
+    <a href="{% url 'home' %}" class="btn btn-success">Нет</a>
+    <button type="submit" class="btn btn-danger">Да</button>
+
+</form>
+
+{% endblock %}

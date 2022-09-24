@@ -1,0 +1,25 @@
+{% extends 'base/base.html' %}
+{% load static %}
+
+{% block title %} Обновить {% endblock %}
+
+{% block content %}
+
+<form class="p-10" method="post">
+    <div class="mb-3 p-5 form">
+        {% csrf_token %}
+<!--        {{ form }}-->
+        <label for="order">Заказ №</label>
+        <input type="text" id="order" name="order_num" value="{{data.order_num}}">
+        <label for="usd">Стоимость $</label>
+        <input type="text" id="usd" name="price_usd" value="{{data.price_usd}}" onkeyup="usd2rub()">
+        <label for="rub">Стоимость руб</label>
+        <input type="text" id="rub" name="price_rub" value="{{data.price_rub}}">
+        <label for="time">Срок поставки</label>
+        <input type="text" id="time" name="delivery_time" value="{{data.delivery_time}}">
+        <button type="submit" class="btn btn-primary btn-lg mt-5">Заменить</button>
+    </div>
+</form>
+<h3> Курс НБ РФ = <span id="rate">{{ rate }}</span> </h3>
+
+{% endblock %}

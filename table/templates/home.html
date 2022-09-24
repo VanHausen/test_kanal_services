@@ -1,0 +1,44 @@
+{% extends 'base/base.html' %}
+{% load static %}
+{% block title %} Главная {% endblock %}
+
+{% block content %}
+
+<h1>Таблица Заказов</h1>
+<a href="{% url 'create' %}" class="btn btn-lg btn-success">Добавить заказ</a>
+<hr>
+<table class="table table-striped p-5 mt-5 mb-5">
+    <tr>
+        <th>№</th>
+        <th>Заказ №</th>
+        <th>Стоимость $</th>
+        <th>Стоимость руб</th>
+        <th>Срок поставки</th>
+        <th>Обновить</th>
+    </tr>
+    {% for order in orders %}
+    <tr>
+        <td>{{ order.id }}</td>
+        <td>{{ order.order_num }}</td>
+        <td>{{ order.price_usd }}</td>
+        <td>{{ order.price_rub }}</td>
+        <td>{{ order.delivery_time }}</td>
+        <td>
+            <a href="update/{{order.id}}" class="btn bnt-sl btn-primary">Изменить</a>
+            <a href="delete/{{order.id}}" class="btn btn-sl btn-danger">Удалить</a>
+        </td>
+    </tr>
+    {% endfor %}
+</table>
+
+<ul class="pages">
+    {% for p in orders.paginator.page_range %}
+
+    <li>
+        <a href="?page={{ p }}"> {{ p }} </a>
+    </li>
+
+    {% endfor %}
+</ul>
+
+{% endblock %}

@@ -1,0 +1,36 @@
+body {
+    background: #d8e3eb
+}
+
+h1{
+    text-align:center
+}
+
+
+
+.pages {
+    text-align: center;
+}
+
+.pages li {
+    display: inline;
+    text-align: center;
+    padding: 7px;
+    background: blue;
+    border-radius: 30% 0;
+    margin-left: 5px;
+}
+
+.pages li a{
+    color: white;
+    text-decoration: none;
+}
+
+form input{
+    width: 120px;
+}
+
+form label{
+    font-size: 1.2rm;
+    font-weight: 900;
+}
